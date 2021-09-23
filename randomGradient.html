@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Random Gradient</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <style>
+      body {
+        background: radial-gradient(
+            circle at 100% 50%,
+            transparent 20%,
+            #e6e6fa 21%,
+            #e6e6fa 34%,
+            transparent 35%,
+            transparent
+          ),
+          radial-gradient(
+              circle at 0% 50%,
+              transparent 20%,
+              #e6e6fa 21%,
+              #e6e6fa 34%,
+              transparent 35%,
+              transparent
+            )
+            0 -50px;
+        background-color: #f8f8ff;
+        background-size: 75px 100px;
+      }
+
+      .randomGradient {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .header,
+      .footer,
+      .body {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px #fff;
+        border-radius: 20px;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .body {
+        background-color: transparent;
+        box-shadow: none;
+        perspective: 600px;
+      }
+
+      .card {
+        width: 240px;
+        height: 300px;
+        position: relative;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+      }
+
+      .card-face {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+      }
+
+      .card-front {
+        background-color: #fff;
+      }
+
+      .card-back {
+        background-color: #fff;
+        transform: rotateY(180deg);
+      }
+
+      button {
+        height: 30px;
+        font-size: 20px;
+        font-family: monospace;
+        background: #4d648d;
+        color: #fff;
+      }
+
+      .card.isFlipped {
+        transform: rotateY(180deg);
+      }
+
+      .textInput {
+        width: 100%;
+        height: 180px;
+        margin-top: 10px;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      input[type="text"] {
+        border: none;
+        border-bottom: 2px solid #000;
+        outline: none;
+        width: 220px;
+        margin-left: 10px;
+        margin-top: 50px;
+        font-size: 30px;
+      }
+
+      .triangles {
+        position: absolute;
+        background: #000;
+        clip-path: polygon(50% 0%, 0% 100%, 50% 100%);
+      }
+
+      .triOne {
+        margin-top: 40px;
+        margin-left: 30px;
+        width: 150px;
+        height: 130px;
+      }
+
+      .triTwo {
+        margin-top: 20px;
+        margin-left: 30px;
+        width: 180px;
+        height: 160px;
+        transform: scaleX(-1);
+      }
+
+      .line {
+        position: absolute;
+        width: 5px;
+        height: 180px;
+        margin-top: 20px;
+        margin-left: 110px;
+        background: #000;
+        border-radius: 50%;
+      }
+
+      .trapezoid {
+        position: absolute;
+        width: 200px;
+        height: 100px;
+        background: #000;
+        margin-left: 20px;
+        margin-top: 150px;
+        clip-path: polygon(0 47%, 100% 47%, 80% 100%, 20% 100%);
+      }
+
+      textarea {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      @media (max-width: 768px) {
+        .randomGradient {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0.8);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="randomGradient">
+      <div class="header">
+        <h1>RandomGradient</h1>
+        <div>
+          <input type="radio" name="gradientStyle" checked="checked" />Border
+          <input type="radio" name="gradientStyle" />Text
+          <input type="radio" name="gradientStyle" />Background
+        </div>
+      </div>
+      <div class="body">
+        <div class="card">
+          <div class="card-face card-front">
+            <div class="textInput"><span>Some Text</span></div>
+            <input
+              type="text"
+              placeholder="Some Text"
+              id="gradientText"
+              oninput="textInput()"
+            />
+          </div>
+          <div class="card-face card-back">
+            <div class="triangles triOne"></div>
+            <div class="line"></div>
+            <div class="triangles triTwo"></div>
+            <div class="trapezoid"></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <label for="code">Double click below to copy code.</label>
+        <textarea
+          class="code"
+          rows="10"
+          cols="30"
+          id="code"
+          readonly
+        ></textarea>
+        <button onclick="generateGradient()">Generate Gradient</button>
+      </div>
+    </div>
+
+    <script>
+      var gradientHeader = document.querySelector(".header");
+      var gradientBody = document.querySelector(".body");
+      var gradientFooter = document.querySelector(".footer");
+      var radioButton = document.getElementsByName("gradientStyle");
+      var textBox = document.getElementById("gradientText");
+      var gradientText = document.querySelector(".textInput");
+      var gradientHeading = document.getElementsByTagName("h1");
+      var textarea = document.querySelector(".code");
+      function textInput() {
+        if (textBox.value == "") {
+          console.log("empty");
+          gradientText.textContent = "Some Text";
+        } else {
+          gradientText.textContent = textBox.value;
+        }
+      }
+
+      textarea.addEventListener("dblclick", function () {
+        textarea.select();
+        textarea.select(0, 99999);
+
+        document.execCommand("copy");
+
+        alert("copied");
+      });
+
+      function generateGradient() {
+        var randomR = Math.floor(Math.random() * (255 - 0));
+        var randomG = Math.floor(Math.random() * (255 - 0));
+        var randomB = Math.floor(Math.random() * (255 - 0));
+
+        var randomR2 = Math.floor(Math.random() * (255 - 0));
+        var randomG2 = Math.floor(Math.random() * (255 - 0));
+        var randomB2 = Math.floor(Math.random() * (255 - 0));
+
+        if (radioButton[0].checked) {
+          document.body.style.background = "#fff";
+
+          gradientHeader.style.border = "3px solid";
+          gradientHeader.style.borderImage =
+            "linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            "))";
+          gradientHeader.style.borderImageSlice = "1";
+
+          gradientBody.style.border = "3px solid";
+          gradientBody.style.borderImage =
+            "linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            "))";
+          gradientBody.style.borderImageSlice = "1";
+
+          gradientFooter.style.border = "3px solid";
+          gradientFooter.style.borderImage =
+            "linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            "))";
+          gradientFooter.style.borderImageSlice = "1";
+
+          textarea.value =
+            "border:3px solid; \n\
+			                  border-image-slice: 1; \n\
+                              border-image : linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            "));";
+        }
+
+        if (radioButton[1].checked) {
+          document.querySelector(".card").classList.remove("isFlipped");
+
+          gradientBody.style.border = "none";
+          gradientFooter.style.border = "none";
+          gradientHeader.style.border = "none";
+
+          var s = document.createElement("style");
+          gradientText.appendChild(s);
+
+          s.innerHTML =
+            " .textInput{\n\
+			                  background: -webkit-linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            ")); \n \
+                              -webkit-background-clip: text; \n\
+                               -webkit-text-fill-color: transparent;\n\
+                               }";
+
+          document.body.style.background = "#d0e1f9";
+
+          var s1 = document.createElement("style");
+          gradientText.appendChild(s1);
+
+          s1.innerHTML =
+            " h1{\n\
+			                  background: -webkit-linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            ")); \n \
+                              -webkit-background-clip: text; \n\
+                               -webkit-text-fill-color: transparent;\n\
+                               }";
+
+          textarea.value =
+            "-webkit-background-clip: text; \n\
+			                  -webkit-text-fill-color: transparent;\n\
+                              background : linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            "));";
+        }
+
+        if (radioButton[2].checked) {
+          document.querySelector(".triOne").style.background =
+            "linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            "))";
+
+          document.querySelector(".triTwo").style.background =
+            "linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            "))";
+
+          document.querySelector(".line").style.background =
+            "linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            "))";
+
+          document.querySelector(".trapezoid").style.background =
+            "linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            "))";
+
+          document.body.style.background =
+            "linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            "))";
+
+          gradientBody.style.border = "none";
+          gradientFooter.style.border = "none";
+          gradientHeader.style.border = "none";
+
+          textarea.value =
+            "\n\
+                              background : linear-gradient(60deg , rgb( " +
+            randomR +
+            ", " +
+            randomG +
+            ", " +
+            randomB +
+            ") , rgb( " +
+            randomR2 +
+            ", " +
+            randomG2 +
+            "," +
+            randomB2 +
+            "));";
+
+          document.querySelector(".card").classList.add("isFlipped");
+        }
+      }
+    </script>
+  </body>
+</html>
