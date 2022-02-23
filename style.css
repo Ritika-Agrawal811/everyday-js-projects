@@ -15,11 +15,21 @@ body {
   overflow: hidden;
 }
 
+/* general classes */
+
+.hide {
+  display: none;
+}
+
+/* main */
+
 .main-grid {
   height: 100vh;
   display: grid;
   grid-template: 100%/ 65% 35%;
 }
+
+/* video section */
 
 .video-section {
   border-right: 2px solid #000;
@@ -96,7 +106,6 @@ ul {
   position: absolute;
   top: calc(100% + 0.5em);
   left: 0;
-  padding: 0.5em 0;
   margin: 0;
   box-sizing: border-box;
   border: 2px solid #000;
@@ -108,14 +117,19 @@ li {
   margin: 0;
   padding: 0.5em;
   border-bottom: 2px solid #000;
+  cursor: pointer;
+  user-select: none;
+  color: #000;
 }
 
-li:first-child {
-  padding-top: 0;
+li:hover {
+  background: -webkit-linear-gradient(60deg, #0000ff, #ff0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }
 
 li:last-child {
-  padding-bottom: 0;
   border-bottom: none;
 }
 
@@ -142,29 +156,25 @@ li:last-child {
   cursor: pointer;
 }
 
-.project-card::before {
+.project-card::before,
+.project-card::after {
   content: "";
   position: absolute;
   width: 2em;
   height: 2em;
-  background: #fff;
   left: -0.2em;
   bottom: -0.2em;
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
   transition: all 250ms ease-in-out;
 }
 
+.project-card::before {
+  background: #fff;
+}
+
 .project-card::after {
-  content: "";
-  position: absolute;
-  width: 2em;
-  height: 2em;
   background: rgba(160, 154, 154, 0.534);
-  left: -0.2em;
-  bottom: -0.2em;
-  clip-path: polygon(0 0, 0% 100%, 100% 100%);
   transform: scale(-1, -1);
-  transition: all 250ms ease-in-out;
 }
 
 .project-img {
@@ -258,31 +268,59 @@ li:last-child {
   border-bottom: 0.5px solid rgba(145, 14, 14, 0.514);
 }
 
-.pin-body::before {
-  content: "";
-  position: absolute;
-  width: 60%;
-  height: 150%;
-  background-color: inherit;
-  border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  right: -20%;
-  border-left: 1px solid rgba(145, 14, 14, 0.514);
-  box-shadow: 0 2px 5px rgba(145, 14, 14, 0.514) inset;
-}
-
+.pin-body::before,
 .pin-body::after {
   content: "";
   position: absolute;
   width: 60%;
-  height: 185%;
   background-color: inherit;
   border-radius: 50%;
   top: 50%;
   transform: translateY(-50%);
-  left: -25%;
-  z-index: -1;
   border-left: 1px solid rgba(145, 14, 14, 0.514);
   box-shadow: 0 2px 5px rgba(145, 14, 14, 0.514) inset;
+}
+
+.pin-body::before {
+  height: 150%;
+  right: -20%;
+}
+
+.pin-body::after {
+  height: 185%;
+  left: -25%;
+  z-index: -1;
+}
+
+.project-card.select {
+  border: 5px solid rgba(19, 49, 214, 0.637);
+  left: 50%;
+  transform: translateX(-50%) rotate(-5deg);
+  transition: all 250ms ease-in-out;
+  cursor: pointer;
+}
+
+.project-card.select::before,
+.project-card.select::after {
+  width: 2.15em;
+  height: 2.15em;
+  left: -0.35em;
+  bottom: -0.35em;
+}
+
+.project-card.select::after {
+  background-color: rgb(183, 191, 231);
+}
+
+.project-card.select .project-caption {
+  font-size: 1.6rem;
+  color: rgba(19, 49, 214, 0.637);
+}
+
+.project-card.select .project-img {
+  width: 88%;
+}
+
+.project-card.select .pin-body {
+  background: #0000ff;
 }

@@ -26,20 +26,39 @@
       <nav>
         <span class="logo"><i class="fa-regular fa-bell"></i> Jingle</span>
         <details class="projects-list">
-          <summary>All Projects</summary>
+          <summary onclick="displayAllProjects()">All Projects</summary>
           <ul>
-            <li class="custom-option">Canvas Slideshow</li>
-            <li class="custom-option">3D Cube</li>
-            <li class="custom-option">Color Picker</li>
-            <li class="custom-option">Fortune Cookie Generator</li>
-            <li class="custom-option">Origami Visualiser</li>
-            <li class="custom-option">Random Gradient Generator</li>
+            <li class="custom-option" onclick="showProject('canvasSlideshow')">
+              Canvas Slideshow
+            </li>
+            <li class="custom-option" onclick="showProject('3dCube')">
+              3D Cube
+            </li>
+            <li class="custom-option" onclick="showProject('colorPicker')">
+              Color Picker
+            </li>
+            <li class="custom-option" onclick="showProject('fortuneCookie')">
+              Fortune Cookie Generator
+            </li>
+            <li
+              class="custom-option"
+              onclick="showProject('origamiVisualiser')"
+            >
+              Origami Visualiser
+            </li>
+            <li class="custom-option" onclick="showProject('randomGradient')">
+              Random Gradient Generator
+            </li>
           </ul>
         </details>
       </nav>
 
       <div class="projects-block">
-        <figure class="project-card">
+        <figure
+          class="project-card select"
+          onclick="displayVideo('canvasSlideshow')"
+          id="canvasSlideshow"
+        >
           <div class="pin">
             <div class="pin-body"></div>
           </div>
@@ -53,7 +72,11 @@
           <figcaption class="project-caption">Canvas Slideshow</figcaption>
         </figure>
 
-        <figure class="project-card">
+        <figure
+          class="project-card"
+          onclick="displayVideo('3dCube')"
+          id="3dCube"
+        >
           <div class="pin">
             <div class="pin-body"></div>
           </div>
@@ -67,7 +90,11 @@
           <figcaption class="project-caption">3D Cube</figcaption>
         </figure>
 
-        <figure class="project-card">
+        <figure
+          class="project-card"
+          onclick="displayVideo('fortuneCookie')"
+          id="fortuneCookie"
+        >
           <div class="pin">
             <div class="pin-body"></div>
           </div>
@@ -81,7 +108,11 @@
           <figcaption class="project-caption">Fortune generator</figcaption>
         </figure>
 
-        <figure class="project-card">
+        <figure
+          class="project-card"
+          onclick="displayVideo('colorPicker')"
+          id="colorPicker"
+        >
           <div class="pin">
             <div class="pin-body"></div>
           </div>
@@ -95,7 +126,11 @@
           <figcaption class="project-caption">Color picker</figcaption>
         </figure>
 
-        <figure class="project-card">
+        <figure
+          class="project-card"
+          onclick="displayVideo('randomGradient')"
+          id="randomGradient"
+        >
           <div class="pin">
             <div class="pin-body"></div>
           </div>
@@ -109,7 +144,11 @@
           <figcaption class="project-caption">gradient generator</figcaption>
         </figure>
 
-        <figure class="project-card">
+        <figure
+          class="project-card"
+          onclick="displayVideo('origamiVisualiser')"
+          id="origamiVisualiser"
+        >
           <div class="pin">
             <div class="pin-body"></div>
           </div>
@@ -124,5 +163,6 @@
         </figure>
       </div>
     </aside>
+    <script src="script.js"></script>
   </body>
 </html>
