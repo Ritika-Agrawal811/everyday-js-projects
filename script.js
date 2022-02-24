@@ -15,10 +15,11 @@ function displayVideo(projectId){
 
 // dropdown menu function
 let projects = document.getElementsByClassName('project-card');
+let projectList = document.querySelector(".projects-list");
 
 function showProject(projectId){
-    console.log(projects);
-
+    
+    
     for(let i = 0 ; i<projects.length ; i++){       
         if(projects[i] != projects[projectId]){
             projects[i].classList.add('hide');
@@ -32,6 +33,8 @@ function showProject(projectId){
         }
     }
 
+    projectList.removeAttribute('open');
+
 }
 
 function displayAllProjects(){
@@ -39,4 +42,6 @@ function displayAllProjects(){
         if(projects[i].classList.contains('hide'))
         projects[i].classList.remove('hide');
     }
+
+    projectList.removeAttribute('open');
 }

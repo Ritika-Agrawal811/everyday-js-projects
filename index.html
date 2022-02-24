@@ -21,13 +21,55 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="main-grid">
-    <section class="video-section"></section>
+    <!-- video section -->
+    <section class="video-section">
+      <div class="video-block">
+        <h2 class="video-title">
+          <div class="pin">
+            <div class="pin-body"></div>
+          </div>
+          Canvas Slideshow
+        </h2>
+        <video controls class="project-video">
+          <source src="/videos/canvasSlideshow.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="projects-buttons-group">
+        <div>
+          <button class="project-btn">
+            <div class="pin button-pin">
+              <div class="pin-body"></div>
+            </div>
+            Code
+          </button>
+          <button class="project-btn">
+            <div class="pin button-pin">
+              <div class="pin-body"></div>
+            </div>
+            Description
+          </button>
+        </div>
+        <button class="project-btn">
+          <div class="pin button-pin">
+            <div class="pin-body"></div>
+          </div>
+          Visit
+        </button>
+      </div>
+    </section>
+
+    <!-- projects list -->
+
     <aside class="projects-list-container">
       <nav>
         <span class="logo"><i class="fa-regular fa-bell"></i> Jingle</span>
         <details class="projects-list">
-          <summary onclick="displayAllProjects()">All Projects</summary>
+          <summary>Projects List</summary>
           <ul>
+            <li class="custom-option" onclick="displayAllProjects()">
+              Show All Projects
+            </li>
             <li class="custom-option" onclick="showProject('canvasSlideshow')">
               Canvas Slideshow
             </li>
