@@ -24,14 +24,18 @@
     <!-- video section -->
     <section class="video-section">
       <div class="video-block">
-        <h2 class="video-title">
+        <h2 class="video-title reveal" id="videoTitle">
           <div class="pin">
             <div class="pin-body"></div>
           </div>
           Canvas Slideshow
         </h2>
-        <video controls class="project-video">
-          <source src="/videos/canvasSlideshow.mp4" type="video/mp4" />
+        <video controls class="project-video reveal" id="projectVideo">
+          <source
+            src="/videos/canvasSlideshow.mp4"
+            type="video/mp4"
+            id="video-source"
+          />
         </video>
       </div>
 
@@ -79,7 +83,7 @@
             <li class="custom-option" onclick="showProject('colorPicker')">
               Color Picker
             </li>
-            <li class="custom-option" onclick="showProject('fortuneCookie')">
+            <li class="custom-option" onclick="showProject('fortuneGenerator')">
               Fortune Cookie Generator
             </li>
             <li
@@ -88,7 +92,10 @@
             >
               Origami Visualiser
             </li>
-            <li class="custom-option" onclick="showProject('randomGradient')">
+            <li
+              class="custom-option"
+              onclick="showProject('gradientGenerator')"
+            >
               Random Gradient Generator
             </li>
           </ul>
@@ -134,8 +141,8 @@
 
         <figure
           class="project-card"
-          onclick="displayVideo('fortuneCookie')"
-          id="fortuneCookie"
+          onclick="displayVideo('fortuneGenerator')"
+          id="fortuneGenerator"
         >
           <div class="pin">
             <div class="pin-body"></div>
@@ -170,8 +177,8 @@
 
         <figure
           class="project-card"
-          onclick="displayVideo('randomGradient')"
-          id="randomGradient"
+          onclick="displayVideo('gradientGenerator')"
+          id="gradientGenerator"
         >
           <div class="pin">
             <div class="pin-body"></div>

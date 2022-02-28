@@ -88,6 +88,20 @@ body {
   box-shadow: 0 5px 10px #d5d5d5;
 }
 
+.reveal {
+  animation: reveal 1.25s ease-in 1;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 /* projects buttons */
 
 .projects-buttons-group {

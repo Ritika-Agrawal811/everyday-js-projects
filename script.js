@@ -1,15 +1,60 @@
 let previousId, currentId;
+let projectVideo = document.getElementById('projectVideo');
+let videoSource = document.getElementById('video-source');
+let videoTitle = document.getElementById('videoTitle');
+
 previousId = document.getElementById('canvasSlideshow');
 
 
 function displayVideo(projectId){
-  currentId = document.getElementById(projectId);
 
-  previousId.classList.remove('select');
-  currentId.classList.add('select');
+  setActiveState(projectId);
+ 
 
-  previousId = currentId;
+  projectVideo.classList.remove('reveal');
+  videoTitle.classList.remove('reveal');
 
+  setTimeout(()=>{
+    projectVideo.classList.add('reveal');
+    videoTitle.classList.add('reveal');
+    videoSource.src = `/videos/${projectId}.mp4`; 
+    projectVideo.load();
+    projectVideo.play();
+
+    setVideoTitle(projectId);
+  }, 300);
+
+ 
+  
+
+}
+
+function setActiveState(projectId){
+    currentId = document.getElementById(projectId);
+
+    previousId.classList.remove('select');
+    currentId.classList.add('select');
+  
+    previousId = currentId;
+}
+
+
+function setVideoTitle(projectId){
+    let firstWord = "" , secondWord = "";
+    let breakPoint;
+
+    for(let i =0 ; i<projectId.length;i++){
+        let char = projectId[i];
+        if(char === char.toUpperCase() && isNaN(char) ){
+            breakPoint = i;
+        }      
+    }
+
+    firstWord = projectId.slice(0 , breakPoint);
+    secondWord = projectId.slice(breakPoint , projectId.length);
+
+    videoTitle.innerHTML = firstWord + " " + secondWord;
+    
 }
 
 
