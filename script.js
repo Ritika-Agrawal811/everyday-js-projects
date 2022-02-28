@@ -9,6 +9,7 @@ previousId = document.getElementById('canvasSlideshow');
 function displayVideo(projectId){
 
   setActiveState(projectId);
+  setButtonLinks(projectId);
  
 
   projectVideo.classList.remove('reveal');
@@ -22,10 +23,7 @@ function displayVideo(projectId){
     projectVideo.play();
 
     setVideoTitle(projectId);
-  }, 300);
-
- 
-  
+  }, 300); 
 
 }
 
@@ -55,6 +53,18 @@ function setVideoTitle(projectId){
 
     videoTitle.innerHTML = firstWord + " " + secondWord;
     
+}
+
+
+// set button links for projects
+
+let projectVisitLink = document.getElementById('project-visit-link');
+let projectCodeLink = document.getElementById('project-code-link');
+
+
+function setButtonLinks(projectId){
+    projectVisitLink.href = `/${projectId}.html`;
+    projectCodeLink.href = `https://github.com/Ritika-Agrawal811/everyday-js-projects/blob/main/${projectId}.html`
 }
 
 

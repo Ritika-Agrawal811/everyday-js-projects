@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fortune Cookie</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <style>
+      body {
+        background: radial-gradient(
+            circle at 100% 50%,
+            transparent 20%,
+            #add8e6 21%,
+            #add8e6 34%,
+            transparent 35%,
+            transparent
+          ),
+          radial-gradient(
+              circle at 0% 50%,
+              transparent 20%,
+              #add8e6 21%,
+              #add8e6 34%,
+              transparent 35%,
+              transparent
+            )
+            0 -50px;
+        background-color: #f8f8ff;
+        background-size: 75px 100px;
+        overflow: hidden;
+      }
+
+      .fortuneCookie {
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        transform: translate(-40%, -40%);
+      }
+
+      .backgroundCookie {
+        position: absolute;
+        width: 400px;
+        height: 550px;
+        margin-top: -200px;
+        margin-left: -50px;
+        background: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.24);
+      }
+
+      .cookies {
+        position: absolute;
+      }
+
+      .cookie1 {
+        margin-left: 160px;
+        transform: rotate(50deg);
+      }
+
+      .cookie2 {
+        margin-top: 70px;
+        margin-left: 80px;
+        transform: rotate(50deg);
+      }
+
+      .circle {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: #cd853f;
+        box-shadow: 1px 5px 15px #000 inset;
+      }
+
+      .fortune {
+        position: absolute;
+        margin-top: -150px;
+      }
+
+      .triangle {
+        position: absolute;
+        width: 40px;
+        height: 80px;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      }
+
+      .triOne {
+        margin-top: -85px;
+        margin-left: 70px;
+        background-color: #000;
+        transform: rotate(-25deg);
+      }
+
+      .triTwo {
+        margin-top: -81px;
+        margin-left: 74px;
+        width: 36px;
+        background-color: #fff;
+        transform: rotate(-25deg);
+      }
+
+      .triThree,
+      .triFour,
+      .triFive {
+        margin-top: -130px;
+        margin-left: 25px;
+        width: 75px;
+        height: 50px;
+        background-color: rgba(218, 165, 32, 0.1);
+        transform: rotate(-25deg) scaleY(-1);
+        filter: drop-shadow(1px -20px 5px #fff);
+      }
+
+      .triFour,
+      .triFive {
+        margin-top: -102px;
+        margin-left: 12px;
+        transform: rotate(-95deg) scaleY(-1);
+      }
+
+      .triFive {
+        margin-top: -125px;
+        margin-left: 55px;
+        transform: rotate(50deg) scaleY(-1);
+      }
+
+      .triSix,
+      .triSeven {
+        margin-top: 10px;
+        margin-left: 10px;
+        width: 120px;
+        height: 120px;
+        background-color: #cd853f;
+        transform: rotate(-90deg);
+      }
+
+      .triSeven {
+        margin-left: 180px;
+        transform: rotate(90deg);
+      }
+
+      .squares {
+        position: absolute;
+        background-color: #fff;
+      }
+
+      .squareOne {
+        width: 50px;
+        height: 50px;
+        margin-top: -30px;
+        margin-left: 70px;
+        transform: rotate(-55deg);
+      }
+
+      .squareTwo {
+        width: 30px;
+        height: 30px;
+        margin-top: -30px;
+        margin-left: 105px;
+        transform: rotate(-75deg);
+      }
+
+      .triFront,
+      .triFrontBack {
+        position: absolute;
+        width: 10px;
+        height: 105px;
+        margin-top: 15px;
+        margin-left: 130px;
+        background-color: #000;
+        border-radius: 0 50px 50px 0;
+        box-shadow: 1px 2px 3px #000 inset;
+      }
+
+      .triFrontRight,
+      .triFrontBackRight {
+        margin-left: 170px;
+        border-radius: 50px 0 0 50px;
+      }
+
+      .triFrontBack {
+        position: absolute;
+        width: 15px;
+        height: 120px;
+        margin-top: 10px;
+        margin-left: 130px;
+        background-color: #cd853f;
+      }
+
+      .triFrontBackRight {
+        margin-left: 165px;
+      }
+
+      button {
+        position: absolute;
+        margin-top: 250px;
+        margin-left: 60px;
+        width: 200px;
+        height: 50px;
+        cursor: pointer;
+        font-size: 25px;
+        background: #00a0b0;
+        color: #fff;
+        font-family: cursive;
+        border: none;
+        border-right: 5px outset #8fd8d8;
+        border-bottom: 5px outset #8fd8d8;
+        outline: none;
+        box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+        transition: 0.2s all;
+      }
+
+      button:active {
+        transform: scale(0.98);
+        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+      }
+
+      h1 {
+        position: absolute;
+        margin-top: -220px;
+        width: 300px;
+      }
+
+      .paper {
+        position: absolute;
+        width: 30px;
+        height: 85px;
+        background: #00a0b0;
+        margin-top: -130px;
+        margin-left: 130px;
+        font-size: 20px;
+        color: #fff;
+        padding: 10px;
+      }
+
+      .animatePaper {
+        animation: animatePaper 1s linear;
+        animation-fill-mode: forwards;
+      }
+
+      .animateCookieLeft {
+        animation: cookieLeft 1s linear;
+        animation-fill-mode: forwards;
+      }
+
+      .animateCookieRight {
+        animation: cookieRight 1s linear;
+        animation-fill-mode: forwards;
+      }
+
+      .creator {
+        position: absolute;
+        font-size: 14px;
+        width: 180px;
+        margin-left: 67px;
+        margin-top: 315px;
+        color: #000;
+      }
+
+      @keyframes cookieLeft {
+        100% {
+          margin-left: -100px;
+        }
+      }
+
+      @keyframes cookieRight {
+        100% {
+          margin-left: 100px;
+        }
+      }
+
+      @keyframes animatePaper {
+        100% {
+          width: 230px;
+          margin-left: 30px;
+        }
+      }
+
+      @media (max-width: 321px) {
+        .fortuneCookie {
+          position: absolute;
+          top: 40%;
+          left: 15%;
+          transform: translate(-15%, -40%) scale(0.7);
+        }
+      }
+
+      @media (min-width: 321px) and (max-width: 376px) {
+        .fortuneCookie {
+          position: absolute;
+          top: 40%;
+          left: 16%;
+          transform: translate(-16%, -40%) scale(0.8);
+        }
+      }
+
+      @media (min-width: 377px) and (max-width: 426px) {
+        .fortuneCookie {
+          position: absolute;
+          top: 40%;
+          left: 16%;
+          transform: translate(-16%, -40%) scale(0.85);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fortuneCookie">
+      <div class="cookie">
+        <div class="backgroundCookie"></div>
+        <div class="fortune">
+          <div class="cookieLeft">
+            <div class="triangle triSix"></div>
+            <div class="triFrontBack"></div>
+            <div class="triFront"></div>
+          </div>
+
+          <div class="cookieRight">
+            <div class="triangle triSeven"></div>
+            <div class="triFrontBack triFrontBackRight"></div>
+            <div class="triFront triFrontRight"></div>
+          </div>
+        </div>
+
+        <div class="paper"></div>
+
+        <div class="cookies">
+          <div class="circle"></div>
+          <div class="triangle triOne"></div>
+          <div class="triangle triTwo"></div>
+          <div class="triangle triThree"></div>
+          <div class="triangle triFour"></div>
+          <div class="triangle triFive"></div>
+          <div class="squares squareOne"></div>
+          <div class="squares squareTwo"></div>
+        </div>
+
+        <div class="cookies cookie1">
+          <div class="circle"></div>
+          <div class="triangle triOne"></div>
+          <div class="triangle triTwo"></div>
+          <div class="triangle triThree"></div>
+          <div class="triangle triFour"></div>
+          <div class="triangle triFive"></div>
+          <div class="squares squareOne"></div>
+          <div class="squares squareTwo"></div>
+        </div>
+
+        <div class="cookies cookie2">
+          <div class="circle"></div>
+          <div class="triangle triOne"></div>
+          <div class="triangle triTwo"></div>
+          <div class="triangle triThree"></div>
+          <div class="triangle triFour"></div>
+          <div class="triangle triFive"></div>
+          <div class="squares squareOne"></div>
+          <div class="squares squareTwo"></div>
+        </div>
+        <button onclick="displayFortune()">Crack Open</button>
+        <p class="creator">
+          Created by
+          <a href="https://twitter.com/RitikaAgrawal08">Ritika Agrawal</a>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let fortunes = [
+        "The early bird gets the worm, but the second mouse gets the cheese.",
+        "Be on the alert to recognize your prime at whatever time of your life it may occur.",
+        "Your road to glory will be rocky, but fulfilling.",
+        "Courage is not simply one of the virtues, but the form of every virtue at the testing point.",
+        "Patience is your alley at the moment. Don’t worry!",
+        "Nothing is impossible to a willing heart.",
+        "Don’t worry about money. The best things in life are free.",
+        "Don’t pursue happiness – create it.",
+        "Courage is not the absence of fear; it is the conquest of it.",
+        "Nothing is so much to be feared as fear.",
+        "All things are difficult before they are easy.",
+        "The real kindness comes from within you.",
+        "A ship in harbor is safe, but that’s not why ships are built.",
+        "You don’t need strength to let go of something. What you really need is understanding.",
+        "If you want the rainbow, you have to tolerate the rain.",
+        "Fear is interest paid on a debt you may not owe.",
+        "Hardly anyone knows how much is gained by ignoring the future.",
+        "The wise man is the one that makes you think that he is dumb.",
+        "The usefulness of a cup is in its emptiness.",
+        "He who throws mud loses ground.",
+        "Success lies in the hands of those who wants it.",
+        "To avoid criticism, do nothing, say nothing, be nothing.",
+        "Of all our human resources, the most precious is the desire to improve.",
+        "People learn little from success, but much from failure.",
+        "Be not afraid of growing slowly, be afraid only of standing still.",
+        "We must always have old memories and young hopes.",
+        "A person who won’t read has no advantage over a person who can’t read.",
+        "He who expects no gratitude shall never be disappointed.",
+        "The best way to get rid of an enemy is to make a friend.",
+        "It’s amazing how much good you can do if you don’t care who gets the credit.",
+        "Never forget that a half truth is a whole lie.",
+        "Happiness isn’t an outside job, it’s an inside job.",
+        "If you do not run your subconscious mind yourself, someone else will.",
+        "You have a secret admirer.",
+        "The middle of the process is no place to determine the end of it.",
+        "Set yourself up to experience what you love.",
+        "When you love yourself, people who don't love you back become less interesting.",
+        "Self acceptance > self improvement",
+        "Somewhere between all those distracting details is the best version of you.",
+        "Unlearn everything that you aren’t. Relearn everything that you are.",
+        "Change comes with embracing the future, not fighting your past.",
+        "To be found, stop hiding.",
+      ];
+
+      let paper = document.querySelector(".paper");
+      let cookieLeft = document.querySelector(".cookieLeft");
+      let cookieRight = document.querySelector(".cookieRight");
+      let count = 0;
+      function displayFortune() {
+        paper.classList.remove("animatePaper");
+        cookieLeft.classList.remove("animateCookieLeft");
+        cookieRight.classList.remove("animateCookieRight");
+        paper.innerHTML = "";
+
+        setTimeout(function () {
+          paper.classList.add("animatePaper");
+          cookieLeft.classList.add("animateCookieLeft");
+          cookieRight.classList.add("animateCookieRight");
+        }, 1000);
+
+        let num = Math.floor(Math.random() * 42);
+
+        setTimeout(function () {
+          paper.innerHTML = fortunes[num];
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>

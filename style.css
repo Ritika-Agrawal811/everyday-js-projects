@@ -117,8 +117,8 @@ body {
   padding: 1.25em 1.15em 0.75em 1.15em;
   margin: -0.5em 0.5em;
   border: none;
-  font-size: 1.25rem;
   text-transform: uppercase;
+  font-size: 1.25rem;
   font-weight: 700;
   transform: rotate(-2deg) skewX(2deg);
   border-radius: 0.25em;
@@ -127,8 +127,17 @@ body {
   cursor: pointer;
 }
 
+.project-btn a {
+  text-decoration: none;
+  color: #000;
+  transition: inherit;
+}
+
 .project-btn:hover {
   background-color: #b87333;
+}
+
+.project-btn:hover a {
   color: #fff;
 }
 
