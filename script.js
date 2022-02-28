@@ -72,13 +72,20 @@ function setButtonLinks(projectId){
 }
 
 let projectDescriptionContainer = document.querySelector('.project-description-container');
+let previousProjectNotes = document.getElementById('canvasSlideshowNotes');
+let currentProjectNotes;
 
 function setDescriptionClickEvent(projectId){
     projectDescriptionLink.addEventListener( 'click' , () => {
-        let projectNotes = document.getElementById(`${projectId}Notes`);
+        currentProjectNotes = document.getElementById(`${projectId}Notes`);
         
         projectDescriptionContainer.classList.add('show-description');
-        projectNotes.classList.remove('hide');
+
+        previousProjectNotes.classList.add('hide');
+        currentProjectNotes.classList.remove('hide');
+       
+
+        previousProjectNotes = currentProjectNotes;
     });
 }
 
@@ -93,6 +100,15 @@ function closeNotes(projectId){
 }
 
 setDescriptionClickEvent('canvasSlideshow');
+
+
+function clickVisit(){
+    projectVisitLink.click();
+}
+
+function clickCode(){
+    projectCodeLink.click();
+}
 
 
 // dropdown menu function

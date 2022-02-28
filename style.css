@@ -488,3 +488,205 @@ li:last-child {
 .hide {
   display: none;
 }
+
+/* media queries */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  html {
+    font-size: 12px;
+  }
+
+  .projects-list {
+    position: relative;
+    width: 220px;
+  }
+
+  .project-card {
+    max-width: 360px;
+    height: 200px;
+    padding: 1.25em 0.5em;
+    border: 1px solid rgba(0, 0, 0, 0.637);
+  }
+
+  .project-card.select::before,
+  .project-card.select::after {
+    width: 2.25em;
+    height: 2.25em;
+    left: -0.5em;
+    bottom: -0.5em;
+  }
+
+  .project-card.select {
+    border: 3px solid #0000ff;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+  html {
+    font-size: 10px;
+  }
+
+  .main-grid {
+    height: 100vh;
+    display: grid;
+    grid-template: 100%/ 63% 37%;
+  }
+
+  .projects-list {
+    position: relative;
+    width: 180px;
+  }
+
+  .video-block {
+    height: 72%;
+    padding: 5em 1em;
+  }
+
+  .projects-block {
+    padding: 0.5em;
+  }
+
+  .project-card {
+    max-width: 420px;
+    height: 190px;
+    padding: 1.25em 0.5em;
+    border: 1px solid rgba(0, 0, 0, 0.637);
+  }
+
+  .project-card.select::before,
+  .project-card.select::after {
+    width: 2.25em;
+    height: 2.25em;
+    left: -0.5em;
+    bottom: -0.5em;
+  }
+
+  .project-card.select {
+    border: 3px solid #0000ff;
+  }
+
+  .project-card.select .project-caption {
+    font-size: 1.35rem;
+    color: #0000ff;
+  }
+
+  .project-caption {
+    position: absolute;
+    bottom: 0.5em;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 424px) {
+  html {
+    font-size: 10px;
+  }
+
+  .main-grid {
+    height: 100vh;
+    display: grid;
+    grid-template: 50% 50% / 100%;
+  }
+
+  .video-section {
+    border-right: none;
+    grid-row: 2 /-1;
+  }
+
+  .projects-list-container {
+    grid-row: 1 / 2;
+    overflow-y: hidden;
+    border-bottom: 2px solid #000;
+  }
+
+  nav {
+    margin-top: 0.75em;
+    padding: 0.75em 0.5em;
+  }
+
+  .projects-list {
+    position: relative;
+    width: 180px;
+  }
+
+  .projects-block {
+    padding: 0.75em;
+  }
+
+  .project-card {
+    max-width: 280px;
+    height: 200px;
+    padding: 1.25em 0.5em;
+    border: 1px solid rgba(0, 0, 0, 0.637);
+  }
+
+  .video-title {
+    padding: 0.75em 0.25em;
+    font-size: 1.25rem;
+  }
+
+  .video-block {
+    width: 85%;
+    height: 80%;
+    padding: 3em 0.5em;
+  }
+
+  .project-video {
+    width: 95%;
+  }
+
+  .project-btn {
+    padding: 1.15em 1.05em 0.5em 1.05em;
+    margin: -0.35em 0.35em;
+    font-size: 1.15rem;
+  }
+
+  .project-card.select::before,
+  .project-card.select::after {
+    width: 2.25em;
+    height: 2.25em;
+    left: -0.5em;
+    bottom: -0.5em;
+  }
+
+  .project-card.select {
+    border: 3px solid #0000ff;
+  }
+
+  .project-card.select .project-caption {
+    font-size: 1.35rem;
+    color: #0000ff;
+  }
+
+  .project-caption {
+    position: absolute;
+    bottom: 0.5em;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+  }
+
+  .project-description-container {
+    width: 90%;
+    height: 65%;
+  }
+
+  .project-notes {
+    padding-top: 2em;
+  }
+
+  .project-notes p {
+    width: 80%;
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .video-block {
+    width: 85%;
+    height: 70%;
+    padding: 4em 0.5em;
+  }
+}

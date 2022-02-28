@@ -41,12 +41,12 @@
 
       <div class="projects-buttons-group">
         <div>
-          <button class="project-btn">
+          <button class="project-btn" onclick="clickCode()">
             <div class="pin button-pin">
               <div class="pin-body"></div>
             </div>
             <a
-              href="https://github.com/Ritika-Agrawal811/everyday-js-projects/blob/main/canvasSlideShow.html"
+              href="https://github.com/Ritika-Agrawal811/everyday-js-projects/blob/main/canvasSlideshow.html"
               id="project-code-link"
               >Code</a
             >
@@ -58,7 +58,7 @@
             <a>Description</a>
           </button>
         </div>
-        <button class="project-btn">
+        <button class="project-btn" onclick="clickVisit()">
           <div class="pin button-pin">
             <div class="pin-body"></div>
           </div>
@@ -103,15 +103,54 @@
             <i class="fa-regular fa-circle-xmark"></i>
           </div>
           <p>
-            After I learned about random function in JavaScript,I decided to use
-            it to make a small project - fortune generator. I guess you might
+            After I learned about random function in JavaScript, I decided to
+            use it to make a small project - fortune generator.I guess you might
             have heared about fortune cookies?
           </p>
           <p>
             I wrote an array to store various fortunes which I am displaying
-            using random function. Getting the animation right was a little
-            confusing but then end up using setTimeout function.
+            using random function.Getting the animation right was a little
+            confusing but then I ended up using setTimeout function.
           </p>
+        </div>
+
+        <div class="project-notes hide" id="colorPickerNotes">
+          <div onclick="closeNotes('colorPickerNotes')" class="close-btn">
+            <i class="fa-regular fa-circle-xmark"></i>
+          </div>
+          <p>
+            I got to know about input color field of HTML - so why not play
+            around with it!
+          </p>
+          <p>
+            Color Picker is a project to pick and drop different colors for each
+            part of powerpuff girls drawing. I also learned to set an image for
+            cursor using CSS - an eyedropper here.
+          </p>
+        </div>
+
+        <div class="project-notes hide" id="gradientGeneratorNotes">
+          <div onclick="closeNotes('gradientGeneratorNotes')" class="close-btn">
+            <i class="fa-regular fa-circle-xmark"></i>
+          </div>
+          <p>
+            Gradients are truly amazing. Borders, texts and backgrounds
+            everything can have gradients.
+          </p>
+          <p>
+            This project helped me understand gradients a lot better. I also
+            generated random colors then used them for different gradients.
+          </p>
+        </div>
+
+        <div class="project-notes hide" id="origamiVisualiserNotes">
+          <div onclick="closeNotes('origamiVisualiserNotes')" class="close-btn">
+            <i class="fa-regular fa-circle-xmark"></i>
+          </div>
+          <p>
+            A project to understand DOM Manipulation with JavaScript better.
+          </p>
+          <p>It is a step by step visualiser to make a dog with origami.</p>
         </div>
       </div>
     </section>
