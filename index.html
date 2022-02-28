@@ -51,11 +51,11 @@
               >Code</a
             >
           </button>
-          <button class="project-btn">
+          <button class="project-btn" id="project-description-link">
             <div class="pin button-pin">
               <div class="pin-body"></div>
             </div>
-            <a href="">Description</a>
+            <a>Description</a>
           </button>
         </div>
         <button class="project-btn">
@@ -64,6 +64,55 @@
           </div>
           <a href="/canvasSlideshow.html" id="project-visit-link">Visit</a>
         </button>
+      </div>
+
+      <div class="project-description-container">
+        <div class="project-notes hide" id="canvasSlideshowNotes">
+          <div onclick="closeNotes('canvasSlideshowNotes')" class="close-btn">
+            <i class="fa-regular fa-circle-xmark"></i>
+          </div>
+          <p>
+            This project features some of my drawings I made during 2020 covid
+            lockdown as I was exploring new hobbies and delved deep into
+            sketching and drawing!
+          </p>
+          <p>
+            As I progressed further with JavaScript, I learned to make an
+            automatic slideshow along with sharpening my CSS skills like how to
+            use box shadow and transform properties.
+          </p>
+        </div>
+
+        <div class="project-notes hide" id="3dCubeNotes">
+          <div onclick="closeNotes('3dCubeNotes')" class="close-btn">
+            <i class="fa-regular fa-circle-xmark"></i>
+          </div>
+          <p>
+            This project was my first ever try at 3D CSS. Making a simple 3D
+            cube was confusing at times but fun! I learned a lot about 3D
+            transforms.
+          </p>
+          <p>
+            Each cube face shows a single div CSS art. A CSS Art made with just
+            gradients!
+          </p>
+        </div>
+
+        <div class="project-notes hide" id="fortuneGeneratorNotes">
+          <div onclick="closeNotes('fortuneGeneratorNotes')" class="close-btn">
+            <i class="fa-regular fa-circle-xmark"></i>
+          </div>
+          <p>
+            After I learned about random function in JavaScript,I decided to use
+            it to make a small project - fortune generator. I guess you might
+            have heared about fortune cookies?
+          </p>
+          <p>
+            I wrote an array to store various fortunes which I am displaying
+            using random function. Getting the animation right was a little
+            confusing but then end up using setTimeout function.
+          </p>
+        </div>
       </div>
     </section>
 

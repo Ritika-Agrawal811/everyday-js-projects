@@ -60,12 +60,39 @@ function setVideoTitle(projectId){
 
 let projectVisitLink = document.getElementById('project-visit-link');
 let projectCodeLink = document.getElementById('project-code-link');
+let projectDescriptionLink = document.getElementById('project-description-link');
 
 
 function setButtonLinks(projectId){
     projectVisitLink.href = `/${projectId}.html`;
-    projectCodeLink.href = `https://github.com/Ritika-Agrawal811/everyday-js-projects/blob/main/${projectId}.html`
+    projectCodeLink.href = `https://github.com/Ritika-Agrawal811/everyday-js-projects/blob/main/${projectId}.html`;
+
+
+    setDescriptionClickEvent(projectId);
 }
+
+let projectDescriptionContainer = document.querySelector('.project-description-container');
+
+function setDescriptionClickEvent(projectId){
+    projectDescriptionLink.addEventListener( 'click' , () => {
+        let projectNotes = document.getElementById(`${projectId}Notes`);
+        
+        projectDescriptionContainer.classList.add('show-description');
+        projectNotes.classList.remove('hide');
+    });
+}
+
+function closeNotes(projectId){
+    let projectNotes = document.getElementById(projectId);   
+    projectDescriptionContainer.classList.remove('show-description');
+
+    setTimeout(() => {
+        projectNotes.classList.add('hide');
+    }, 1500);
+
+}
+
+setDescriptionClickEvent('canvasSlideshow');
 
 
 // dropdown menu function

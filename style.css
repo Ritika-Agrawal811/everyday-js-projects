@@ -16,12 +16,6 @@ body {
   background-color: #f5f5dc;
 }
 
-/* general classes */
-
-.hide {
-  display: none;
-}
-
 /* main */
 
 .main-grid {
@@ -38,6 +32,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .video-block {
@@ -437,4 +432,59 @@ li:last-child {
 
 .project-card.select .pin-body {
   background: #0000ff;
+}
+
+/* projects description */
+
+.project-description-container {
+  position: absolute;
+  width: 90%;
+  height: 45%;
+  z-index: 10;
+  bottom: -500px;
+  transform: rotate(0deg);
+  transform-origin: 100% 100%;
+  transition: all 1s ease-in-out;
+}
+
+.project-notes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 2px 2px 3px #d5d5d5;
+  background: #eeeedd;
+  color: #ac4a04;
+  padding-top: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-notes p {
+  width: 75%;
+  font-size: 1.25rem;
+  margin: 0.25em 0;
+  user-select: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 1.5rem;
+}
+
+.close-btn i {
+  cursor: pointer;
+}
+
+.show-description {
+  bottom: 0;
+  transform: rotate(-5deg);
+}
+
+/* general classes */
+
+.hide {
+  display: none;
 }
