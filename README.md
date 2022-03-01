@@ -2,12 +2,7 @@
 A repository designed to include beginner level JavaScript projects that can be completed within a day and teach you a new concept everyday plus they are fun to make!!
 
 Live link :- https://flora-tau.vercel.app/
- 
- ## Screenshots :point_down:
-<img src="https://res.cloudinary.com/djix6uusx/image/upload/v1646103810/jingle_p1pbrf.png"/> 
 
-
- 
  ## Projects List :point_down:
  SNo. | Project Name | Code Link | Live Link
  ------------ | -------------|--------------|----------
@@ -17,3 +12,10 @@ Live link :- https://flora-tau.vercel.app/
 4 | Random Gradient Generator | Code | Visit
 5 | Fortune Generator | Code | Visit
 6 | Origami Visualiser | Code | Visit
+ 
+ ## Screenshot :point_down:
+<img src="https://res.cloudinary.com/djix6uusx/image/upload/v1646103810/jingle_p1pbrf.png"/> 
+
+
+ 
+
