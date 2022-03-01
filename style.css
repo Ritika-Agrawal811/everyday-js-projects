@@ -584,6 +584,10 @@ li:last-child {
     font-size: 12px;
   }
 
+  body {
+    overflow-y: scroll;
+  }
+
   .main-grid {
     height: 100vh;
     display: grid;
