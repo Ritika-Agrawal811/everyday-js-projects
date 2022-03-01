@@ -12,7 +12,7 @@ Live link :- https://flora-tau.vercel.app/
 
  
  ## Projects List :point_down:
- SNo. | Project Name |        |
+ SNo. | Project Name | Code Link | Live Link
  ------------ | -------------|--------------|----------
 
 1 | Canvas SlideShow | Code | Visit
