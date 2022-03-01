@@ -584,10 +584,6 @@ li:last-child {
     font-size: 12px;
   }
 
-  body {
-    overflow-y: scroll;
-  }
-
   .main-grid {
     height: 100vh;
     display: grid;
@@ -634,7 +630,7 @@ li:last-child {
 
   .video-block {
     width: 85%;
-    height: 80%;
+    height: 75%;
     padding: 3em 0.5em;
   }
 
@@ -695,7 +691,7 @@ li:last-child {
 
   .video-block {
     width: 85%;
-    height: 70%;
+    height: 65%;
     padding: 3.5em 0.5em;
   }
 
