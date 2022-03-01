@@ -593,6 +593,8 @@ li:last-child {
   .video-section {
     border-right: none;
     grid-row: 2 /-1;
+    justify-content: start;
+    align-items: center;
   }
 
   .projects-list-container {
