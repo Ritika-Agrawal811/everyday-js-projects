@@ -675,7 +675,7 @@ li:last-child {
   }
 
   .project-notes {
-    padding-top: 2em;
+    padding-top: 2.5em;
   }
 
   .project-notes p {
@@ -693,5 +693,10 @@ li:last-child {
     width: 85%;
     height: 70%;
     padding: 4em 0.5em;
+  }
+
+  .project-description-container {
+    width: 95%;
+    height: 65%;
   }
 }
