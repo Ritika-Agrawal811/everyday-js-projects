@@ -587,14 +587,12 @@ li:last-child {
   .main-grid {
     height: 100vh;
     display: grid;
-    grid-template: 50% 50% / 100%;
+    grid-template: 45% 55% / 100%;
   }
 
   .video-section {
     border-right: none;
     grid-row: 2 /-1;
-    justify-content: start;
-    align-items: center;
   }
 
   .projects-list-container {
