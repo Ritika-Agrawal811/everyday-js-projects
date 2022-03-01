@@ -581,7 +581,7 @@ li:last-child {
 
 @media (max-width: 424px) {
   html {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .main-grid {
@@ -608,7 +608,7 @@ li:last-child {
 
   .projects-list {
     position: relative;
-    width: 180px;
+    width: 200px;
   }
 
   .projects-block {
@@ -617,9 +617,9 @@ li:last-child {
   }
 
   .project-card {
-    max-width: 280px;
+    max-width: 270px;
     height: 200px;
-    padding: 1.25em 0.5em;
+    padding: 1.5em 0.5em;
     border: 1px solid rgba(0, 0, 0, 0.637);
   }
 
@@ -685,6 +685,10 @@ li:last-child {
 }
 
 @media (max-width: 375px) {
+  html {
+    font-size: 10px;
+  }
+
   .video-block {
     width: 85%;
     height: 70%;
