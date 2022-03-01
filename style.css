@@ -692,11 +692,11 @@ li:last-child {
   .video-block {
     width: 85%;
     height: 70%;
-    padding: 4em 0.5em;
+    padding: 3.5em 0.5em;
   }
 
   .project-description-container {
     width: 95%;
-    height: 65%;
+    height: 70%;
   }
 }
