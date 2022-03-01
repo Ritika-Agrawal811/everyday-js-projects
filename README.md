@@ -14,7 +14,6 @@ Live link :- https://flora-tau.vercel.app/
  ## Projects List :point_down:
  SNo. | Project Name | Code Link | Live Link
  ------------ | -------------|--------------|----------
-
 1 | Canvas SlideShow | Code | Visit
 2 | 3D Cube | Code | Visit
 3 | Color Picker | Code | Visit
