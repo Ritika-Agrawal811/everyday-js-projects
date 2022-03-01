@@ -1,12 +1,12 @@
 # everyday-js-projects
 A repository designed to include beginner level JavaScript projects that can be completed within a day and teach you a new concept everyday plus they are fun to make!!
 
-Live link :- https://flora-tau.vercel.app/
+Live link :- https://everyday-js-projects.vercel.app/
 
  ## Projects List :point_down:
  SNo. | Project Name | Code Link | Live Link
  ------------ | -------------|--------------|----------
-1 | Canvas SlideShow | Code | Visit
+1 | Canvas SlideShow | Code | Visit[https://everyday-js-projects.vercel.app/canvasSlideshow.html]
 2 | 3D Cube | Code | Visit
 3 | Color Picker | Code | Visit
 4 | Random Gradient Generator | Code | Visit
