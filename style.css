@@ -686,7 +686,7 @@ li:last-child {
 
 @media (max-width: 375px) {
   html {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .video-block {
