@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <title>Memory Game</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      html {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: url("card_matching_img/ignasi_pattern_s.png");
+        font-size: 62.5%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      ul > li {
+        list-style: none;
+        overflow: hidden;
+      }
+
+      .card,
+      .reset-btn {
+        cursor: pointer;
+      }
+
+      .btn {
+        border-radius: 1em;
+        border: none;
+        color: #fff;
+        box-shadow: 5px 3px 20px 0 rgba(46, 61, 73, 0.5);
+        padding: 0.5em 1.5em;
+        outline: none;
+      }
+
+      h1 {
+        font-size: 3em;
+        font-weight: 400;
+      }
+
+      p {
+        font-size: 1.6em;
+      }
+
+      .score-panel {
+        font-size: 1.4em;
+        padding: 1em 0.2em;
+      }
+
+      .moves-counter {
+        padding: 0.5em;
+      }
+
+      .reset-btn {
+        background: #000;
+      }
+
+      .timer-container {
+        background: #fff;
+        border-radius: 0.5em;
+        color: #000;
+        margin: 0.5em;
+        padding: 0.5em;
+      }
+
+      .timer {
+        font-size: 1em;
+      }
+
+      .deck {
+        background: #000;
+        border-radius: 1.5em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        height: 22em;
+        margin: 5em 0 0 1em;
+        padding: 0.5em;
+        width: 22em;
+      }
+
+      .deck,
+      .card {
+        box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+      }
+
+      .card {
+        background: #fc4;
+        border-radius: 0.5em;
+        height: 4.25em;
+        width: 4.25em;
+      }
+
+      img {
+        user-select: none;
+        width: 90%;
+        height: auto;
+      }
+
+      .deck img {
+        visibility: hidden;
+      }
+
+      .deck .card.flip {
+        background: #fff;
+        cursor: default;
+        transform: rotateY(180deg);
+        transition: transform 0.3s linear;
+        pointer-events: none;
+        display: grid;
+        place-items: center;
+        object-fit: contain;
+      }
+
+      .flip img {
+        background: #fff;
+        visibility: visible;
+      }
+
+      .deck .card.match {
+        background: #000;
+        visibility: visible;
+        cursor: default;
+        animation: pulse 1s;
+      }
+
+      .match img {
+        background: #000;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+
+        80% {
+          transform: scale(1.1);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @media screen and (min-width: 320px) {
+        .header {
+          margin: 6em 0 0 3em;
+        }
+
+        h1 {
+          color: #fff;
+        }
+
+        .btn {
+          margin-top: 1em;
+        }
+
+        .pokedex {
+          background: radial-gradient(
+                40% 40% at 50% 50%,
+                #ff0 49%,
+                transparent 51%
+              )
+              10em 0.25em/5em 5em,
+            radial-gradient(40% 40% at 50% 50%, #0f0 49%, transparent 51%) 14em
+              0.25em/5em 5em,
+            radial-gradient(40% 40% at 50% 50%, #0000ff 49%, transparent 51%)
+              0em -2em/12em 12em,
+            radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) -0.75em -2.75em/13.5em
+              13.5em,
+            radial-gradient(40% 40% at 50% 50%, #aaa 49%, transparent 51%) -1.5em -3.5em/15em
+              15em,
+            linear-gradient(90deg, rgba(0, 0, 0, 0.5) 50%, transparent 50%)
+              23.6em 3em/3em 4em,
+            linear-gradient(90deg, rgba(0, 0, 0, 0.5) 50%, transparent 50%) 25em
+              3em/60em 1em,
+            linear-gradient(90deg, rgba(0, 0, 0, 0.5) 50%, transparent 50%) 0em
+              6em/47.25em 1em,
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.5) 50%,
+                transparent 50%
+              )
+              23.6em 4em/3em 3.5em,
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.5) 50%,
+                transparent 50%
+              )
+              25em 4em/60em 0.5em,
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.5) 50%,
+                transparent 50%
+              )
+              0em 7em/47.25em 0.5em,
+            linear-gradient(90deg, #aaa 50%, transparent 50%) 3em 9em/92em 48em,
+            linear-gradient(90deg, rgba(0, 0, 0, 0.5) 50%, transparent 50%)
+              2.75em 8.75em/93.5em 48.75em,
+            linear-gradient(90deg, #00ff00 50%, transparent 50%) 0 61em/35em 5em,
+            linear-gradient(90deg, #0000ff 50%, transparent 50%) 35em 61em/55em
+              5em,
+            linear-gradient(90deg, #000 50%, transparent 50%) 22.75em 60em/13em
+              2em,
+            linear-gradient(90deg, #000 50%, transparent 50%) 25em 58em/4em 6em;
+          background-repeat: no-repeat;
+          font-size: 5px;
+          width: 55em;
+          height: 65em;
+          position: absolute;
+          z-index: -1;
+          margin: -1em 0 0 -1.75em;
+          background-color: #ff0000;
+          border-radius: 2em;
+        }
+
+        .pokedex-side {
+          background: radial-gradient(
+                40% 40% at 50% 50%,
+                #00f 49%,
+                transparent 51%
+              )
+              40em 45em/5em 5em,
+            radial-gradient(40% 40% at 50% 50%, #0f0 49%, transparent 51%) 45em
+              45em/5em 5em,
+            radial-gradient(40% 40% at 50% 50%, #ffff00 49%, transparent 51%)
+              0em 42em/12em 12em,
+            radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) -0.75em
+              41.25em/13.5em 13.5em,
+            radial-gradient(40% 40% at 50% 50%, #aaa 49%, transparent 51%) -1.5em
+              40.75em/15em 15em,
+            linear-gradient(90deg, #00ff00 50%, transparent 50%) 25em 0em/30em
+              7em,
+            linear-gradient(90deg, #0000ff 50%, transparent 50%) 42em 0em/22em
+              7em,
+            linear-gradient(90deg, #121212 50%, transparent 50%) 23em 0em/65em
+              9.5em,
+            linear-gradient(90deg, rgb(0, 0, 0) 50%, transparent 50%) 0em 0em/47.25em
+              6.5em,
+            linear-gradient(90deg, #000 50%, transparent 50%) 2.75em 11em/93.5em
+              16em,
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.8) 50%,
+                transparent 50%
+              )
+              2.5em 10.75em/94.5em 16.5em,
+            linear-gradient(90deg, #000 50%, transparent 50%) 0em 61em/35em 5em,
+            linear-gradient(90deg, #000 50%, transparent 50%) 35em 61em/55em 5em;
+          background-repeat: no-repeat;
+          font-size: 5px;
+          width: 55em;
+          height: 55em;
+          position: absolute;
+          z-index: -1;
+          margin-left: -1.5em;
+          background-color: #ff0000;
+          border-radius: 2em;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .deck {
+          height: 26em;
+          padding: 1em;
+          width: 26em;
+          margin: 9em 0 0 1.5em;
+        }
+
+        img {
+          width: 100%;
+        }
+
+        .header {
+          margin: 7em 0 0 3em;
+        }
+
+        h1 {
+          font-size: 4em;
+          color: #fff;
+        }
+
+        .btn {
+          margin-top: 1em;
+        }
+
+        .card {
+          height: 5.25em;
+          width: 5.25em;
+        }
+
+        .deck img {
+          width: 4em;
+        }
+
+        .pokedex {
+          font-size: 6px;
+          width: 55em;
+          height: 65em;
+          margin: 2.75em 0 0 -1.75em;
+        }
+
+        .pokedex-side {
+          font-size: 6px;
+          width: 55em;
+          height: 55em;
+          position: absolute;
+          z-index: -1;
+          margin-left: -1.5em;
+          background-color: #ff0000;
+          border-radius: 2em;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        h1 {
+          font-size: 8em;
+          font-family: monospace;
+          color: #fff;
+        }
+
+        .container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row-reverse;
+          transform: scale(0.8);
+        }
+
+        .pokedex {
+          font-size: 10px;
+          margin-left: -52em;
+        }
+
+        .pokedex-side {
+          font-size: 10px;
+
+          margin-left: 58em;
+          margin-top: 5em;
+        }
+
+        h3 {
+          font-size: 1.5em;
+          font-weight: bold;
+          font-family: cursive;
+        }
+
+        .deck {
+          height: 42em;
+          width: 42em;
+          padding: 2em;
+          box-shadow: none;
+          margin: 3em 0 0 0;
+        }
+
+        .header {
+          margin-left: 15em;
+          margin-top: 12em;
+        }
+
+        .score-panel {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          margin-top: 1em;
+        }
+
+        .moves-counter {
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+
+        .card {
+          height: 8em;
+          width: 8em;
+        }
+
+        .deck img {
+          width: 7em;
+        }
+
+        .reset-btn {
+          font-size: 1.5em;
+          margin-top: 2em;
+        }
+
+        .timer {
+          font-size: 1.6em;
+        }
+      }
+
+      @media screen and (min-width: 1440px) {
+        .container {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pokedex-side"></div>
+      <header class="header">
+        <h1>Pokemon <br />Memory Game</h1>
+
+        <section class="score-panel">
+          <h3>Moves</h3>
+
+          <span class="moves-counter">0</span>
+
+          <div class="timer-container">
+            <span class="timer">Timer: 00:00</span>
+          </div>
+
+          <div class="reset">
+            <button class="btn reset-btn">Reset</button>
+          </div>
+        </section>
+      </header>
+
+      <div class="pokedex"></div>
+      <ul class="deck"></ul>
+    </div>
+
+    <script>
+      //Arrays of deck images
+
+      const deckCard = [
+        "pikachu.png",
+        "pikachu.png",
+        "squirtle.png",
+        "squirtle.png",
+        "bulbasaur.png",
+        "bulbasaur.png",
+        "butterfree.png",
+        "butterfree.png",
+        "meowth.png",
+        "meowth.png",
+        "chansey.png",
+        "chansey.png",
+        "charizard.png",
+        "charizard.png",
+        "sandshrew.png",
+        "sandshrew.png",
+      ];
+
+      // accessing deck
+
+      const deck = document.querySelector(".deck");
+
+      // empty array to store opened cards
+
+      let opened = [];
+
+      //empty array to store matched cards
+
+      let matched = [];
+
+      //reset button
+
+      const reset = document.querySelector(".reset-btn");
+
+      //moves counter
+
+      const movesCount = document.querySelector(".moves-counter");
+
+      let moves = 0;
+
+      const timeCounter = document.querySelector(".timer");
+
+      let time;
+      let minutes = 0;
+      let seconds = 0;
+
+      let timeStart = false;
+
+      function shuffle(array) {
+        let currentIndex = array.length,
+          temporaryValue,
+          randomIndex;
+
+        while (currentIndex !== 0) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+
+          currentIndex--;
+
+          temporaryValue = array[currentIndex];
+
+          array[currentIndex] = array[randomIndex];
+
+          array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+      }
+
+      function startGame() {
+        const shuffledDeck = shuffle(deckCard);
+
+        for (let i = 0; i < shuffledDeck.length; i++) {
+          const liTag = document.createElement("li");
+
+          liTag.classList.add("card");
+
+          const addImage = document.createElement("img");
+
+          liTag.appendChild(addImage);
+
+          addImage.setAttribute("src", "card_matching_img/" + shuffledDeck[i]);
+
+          deck.appendChild(liTag);
+        }
+      }
+
+      startGame();
+
+      function removeCard() {
+        while (deck.hasChildNodes()) {
+          deck.removeChild(deck.firstChild);
+        }
+      }
+
+      function timer() {
+        time = setInterval(function () {
+          seconds++;
+
+          if (seconds === 60) {
+            minutes++;
+
+            seconds = 0;
+          }
+
+          timeCounter.innerHTML =
+            "Timer: " + minutes + " Mins " + seconds + " Secs";
+        }, 1000);
+      }
+
+      function stopTime() {
+        clearInterval(time);
+      }
+
+      function resetEverything() {
+        stopTime();
+
+        timeStart = false;
+
+        seconds = 0;
+        minutes = 0;
+
+        timeCounter.innerHTML = "Timer: 00:00";
+
+        document.querySelector("h3").innerHTML = "Moves";
+
+        reset.innerHTML = "Reset";
+
+        moves = 0;
+
+        movesCount.innerHTML = 0;
+
+        matched = [];
+
+        opened = [];
+
+        removeCard();
+
+        startGame();
+      }
+
+      function movesCounter() {
+        movesCount.innerHTML++;
+
+        moves++;
+      }
+
+      function compareTwo() {
+        if (opened.length === 2) {
+          document.body.style.pointerEvents = "none";
+        }
+
+        if (opened.length === 2 && opened[0].src === opened[1].src) {
+          match();
+        } else if (opened.length === 2 && opened[0].src !== opened[1].src) {
+          noMatch();
+        }
+      }
+
+      function match() {
+        setTimeout(function () {
+          opened[0].parentElement.classList.add("match");
+
+          opened[1].parentElement.classList.add("match");
+
+          matched.push(...opened);
+
+          document.body.style.pointerEvents = "auto";
+
+          winGame();
+
+          opened = [];
+        }, 600);
+
+        movesCounter();
+      }
+
+      function noMatch() {
+        setTimeout(function () {
+          opened[0].parentElement.classList.remove("flip");
+
+          opened[1].parentElement.classList.remove("flip");
+
+          document.body.style.pointerEvents = "auto";
+
+          opened = [];
+        }, 700);
+
+        movesCounter();
+      }
+
+      function winGame() {
+        if (matched.length === 16) {
+          stopTime();
+
+          let movesText = document.querySelector(".moves-counter").innerHTML;
+
+          document.querySelector("h3").innerHTML =
+            "Kudos!You have found all the pairs";
+
+          document.querySelector(".moves-counter").innerHTML =
+            "in " + movesText + " moves.";
+
+          reset.innerHTML = "Play Again";
+        }
+      }
+
+      deck.addEventListener("click", function (e) {
+        if (e.target.nodeName === "LI") {
+          if (timeStart === false) {
+            timeStart = true;
+
+            timer();
+          }
+
+          flipCard();
+        }
+
+        function flipCard() {
+          e.target.classList.add("flip");
+
+          addToOpened();
+        }
+
+        function addToOpened() {
+          if (opened.length === 0 || opened.length === 1) {
+            opened.push(e.target.firstElementChild);
+          }
+
+          compareTwo();
+        }
+      });
+
+      reset.addEventListener("click", resetEverything);
+    </script>
+  </body>
+</html>
