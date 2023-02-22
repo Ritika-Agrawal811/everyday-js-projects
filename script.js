@@ -33,21 +33,10 @@ function setActiveState(projectId) {
 }
 
 function setVideoTitle(projectId) {
-  let firstWord = "",
-    secondWord = "";
-  let breakPoint;
+  let project = document.getElementById(projectId);
+  let projectTitle = project.getAttribute("data-title");
 
-  for (let i = 0; i < projectId.length; i++) {
-    let char = projectId[i];
-    if (char === char.toUpperCase() && isNaN(char)) {
-      breakPoint = i;
-    }
-  }
-
-  firstWord = projectId.slice(0, breakPoint);
-  secondWord = projectId.slice(breakPoint, projectId.length);
-
-  videoTitle.innerHTML = firstWord + " " + secondWord;
+  videoTitle.innerHTML = projectTitle;
 }
 
 // set button links for projects
