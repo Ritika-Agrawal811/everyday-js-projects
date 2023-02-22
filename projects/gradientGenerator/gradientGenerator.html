@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Random Gradient</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="randomGradient">
+      <div class="header">
+        <h1>RandomGradient</h1>
+        <div>
+          <input type="radio" name="gradientStyle" checked="checked" />Border
+          <input type="radio" name="gradientStyle" />Text
+          <input type="radio" name="gradientStyle" />Background
+        </div>
+      </div>
+      <div class="body">
+        <div class="card">
+          <div class="card-face card-front">
+            <div class="textInput"><span>Some Text</span></div>
+            <input
+              type="text"
+              placeholder="Some Text"
+              id="gradientText"
+              oninput="textInput()"
+            />
+          </div>
+          <div class="card-face card-back">
+            <div class="triangles triOne"></div>
+            <div class="line"></div>
+            <div class="triangles triTwo"></div>
+            <div class="trapezoid"></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <label for="code">Double click below to copy code.</label>
+        <textarea
+          class="code"
+          rows="10"
+          cols="30"
+          id="code"
+          readonly
+        ></textarea>
+        <button onclick="generateGradient()">Generate Gradient</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
