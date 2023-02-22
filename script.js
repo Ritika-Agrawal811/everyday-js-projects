@@ -60,7 +60,7 @@ let projectDescriptionLink = document.getElementById(
 
 function setButtonLinks(projectId) {
   projectVisitLink.href = `/projects/${projectId}/${projectId}.html`;
-  projectCodeLink.href = `https://github.com/Ritika-Agrawal811/everyday-js-projects/blob/main/${projectId}.html`;
+  projectCodeLink.href = `https://github.com/Ritika-Agrawal811/everyday-js-projects/tree/main/projects/${projectId}`;
 
   setDescriptionClickEvent(projectId);
 }
