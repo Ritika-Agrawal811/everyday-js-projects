@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Origami Visualiser</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="scene">
+      <div class="title">
+        <h1><span>Origami</span>Visualiser</h1>
+        <p>A step-by-step visualiser to create a dog with origami.</p>
+      </div>
+      <div class="dog">
+        <div id="origami_step1" class="upper-half"></div>
+        <div id="origami_lowerHalf" class="lower-half"></div>
+        <div id="origami_step2" class="lower-left-half"></div>
+        <div id="origami_lower_rightHalf" class="lower-right-half"></div>
+        <div id="origami_ear_left" class="ear-left"></div>
+        <div id="origami_ear_right" class="ear-right"></div>
+        <div id="upper-face" class="upper-face"></div>
+        <div id="lower-face" class="lower-face"></div>
+        <div id="lower_upper_face" class="lower-face-upper"></div>
+        <div id="origami_mouth" class="mouth"></div>
+        <div id="eye-left" class="eyes"></div>
+        <div id="eye-right" class="eyes eye-right"></div>
+        <div id="nose" class="nose"></div>
+      </div>
+
+      <div class="buttons">
+        <span>
+          <button onclick="Step1()" id="step1Btn">Step 1</button>
+          <button onclick="Step2()" id="step2Btn" disabled>Step 2</button>
+          <button onclick="Step3()" id="step3Btn" disabled>Step 3</button>
+
+          <button onclick="Step4()" id="step4Btn" disabled>Step 4</button>
+        </span>
+        <span class="second-row">
+          <button onclick="Step5()" id="step5Btn" disabled>Step 5</button>
+          <button onclick="Step6()" id="step6Btn" disabled>Step 6</button>
+          <button onclick="location.reload()">Again</button>
+        </span>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
