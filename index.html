@@ -156,6 +156,20 @@
           </p>
           <p>It is a step by step visualiser to make a dog with origami.</p>
         </div>
+
+        <div class="project-notes hide" id="rollDiceGameNotes">
+          <div onclick="closeNotes('rollDiceGameNotes')" class="close-btn">
+            <i class="fa-regular fa-circle-xmark"></i>
+          </div>
+          <p>
+            Making small games with JavaScript is the best way to understand
+            concepts better and have fun along the way.
+          </p>
+          <p>
+            I made a dice roll game which helped me to understand DOM
+            Manipulation, helped build my logic and try 3D CSS also.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -193,6 +207,10 @@
               onclick="showProject('gradientGenerator')"
             >
               Random Gradient Generator
+            </li>
+
+            <li class="custom-option" onclick="showProject('rollDiceGame')">
+              Roll Dice Game
             </li>
           </ul>
         </details>
@@ -305,6 +323,24 @@
             class="project-img"
           />
           <figcaption class="project-caption">origami visualiser</figcaption>
+        </figure>
+
+        <figure
+          class="project-card"
+          onclick="displayVideo('rollDiceGame')"
+          id="rollDiceGame"
+        >
+          <div class="pin">
+            <div class="pin-body"></div>
+          </div>
+          <img
+            src="images/roll-dice-game.png"
+            alt="Roll Dice Game made with JavaScript"
+            width="400"
+            height="200"
+            class="project-img"
+          />
+          <figcaption class="project-caption">Roll Dice Game</figcaption>
         </figure>
       </div>
     </aside>

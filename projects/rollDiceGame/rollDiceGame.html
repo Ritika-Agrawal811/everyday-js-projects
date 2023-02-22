@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Roll a dice Game</title>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="die-game">
+      <div class="scene">
+        <div class="dice1">
+          <div class="dice-face front"></div>
+          <div class="dice-face back"></div>
+          <div class="dice-face right"></div>
+          <div class="dice-face left"></div>
+          <div class="dice-face top"></div>
+          <div class="dice-face bottom"></div>
+        </div>
+      </div>
+
+      <div class="scene2">
+        <div class="dice2">
+          <div class="dice-face front"></div>
+          <div class="dice-face back"></div>
+          <div class="dice-face right"></div>
+          <div class="dice-face left"></div>
+          <div class="dice-face top"></div>
+          <div class="dice-face bottom"></div>
+        </div>
+      </div>
+      <div class="side-panel">
+        <h1>Roll A Dice Game</h1>
+        <p class="instructions">
+          Instructions: <br />First Player to reach a sum of 30 wins.
+        </p>
+        <div class="player player1">
+          <p>Player 1</p>
+          <div class="scores player1-score">0</div>
+        </div>
+        <div class="player player2">
+          <p>Player 2</p>
+          <div class="scores player2-score">0</div>
+        </div>
+        <div class="buttons">
+          <button class="rollDice" onclick="roll()">Roll Dice</button>
+          <button class="newGame" onclick="location.reload()">New Game</button>
+          <button class="doubleDice" onclick="doubleDice()">Double Dice</button>
+        </div>
+      </div>
+      <p class="creator">Created by Ritika Agrawal</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

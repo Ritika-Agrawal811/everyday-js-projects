@@ -1,0 +1,362 @@
+body {
+  background: #e5fcc2;
+}
+
+.die-game {
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  transform: translate(-55%, -40%);
+}
+
+.side-panel {
+  position: absolute;
+  width: 300px;
+  height: 365px;
+  margin-left: -350px;
+  margin-top: -90px;
+  border: 3px solid;
+  border-image: linear-gradient(60deg, #fe4365, #547980);
+  border-image-slice: 1;
+}
+
+.player {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  border: 2px solid #aaa;
+  margin-left: 50px;
+  padding: 5px;
+}
+
+.player p {
+  margin-top: 0px;
+}
+
+.player2 {
+  margin-left: 160px;
+}
+
+h1 {
+  text-align: center;
+  font-family: monospace;
+  font-size: 32px;
+  background: linear-gradient(60deg, #fe4365, #547980);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+p {
+  font-family: monospace;
+  text-align: center;
+}
+
+.instructions {
+  font-family: sans-serif;
+  margin-top: -10px;
+}
+
+.scores {
+  text-align: center;
+  font-size: 40px;
+}
+
+.buttons {
+  position: absolute;
+  margin-top: 115px;
+  margin-left: 80px;
+  width: 150px;
+  height: 115px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+button {
+  font-family: monospace;
+  height: 30px;
+  border: 3px solid;
+  border-image: linear-gradient(60deg, #fe4365, #547980);
+  border-image-slice: 1;
+  background: #e5fcc2;
+  outline: none;
+  font-weight: bold;
+  background: linear-gradient(60deg, #fe4365, #547980);
+  font-size: 18px;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.rollDice[disabled] {
+  opacity: 0.5;
+}
+
+.creator {
+  position: absolute;
+  font-size: 18px;
+  margin-left: -320px;
+  margin-top: 300px;
+}
+
+.scene {
+  width: 100px;
+  height: 100px;
+  perspective: 400px;
+  position: absolute;
+}
+
+.scene2 {
+  width: 100px;
+  height: 100px;
+  margin-left: 120px;
+  margin-top: 30px;
+  perspective: 400px;
+  position: absolute;
+}
+
+.dice1 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(-50px);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.dice2 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(-50px);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  display: none;
+}
+
+.dice-face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.scene2 .dice-face {
+  background-color: aqua;
+}
+
+.front {
+  background: radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%)
+      30px 30px/35px 35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 25.5px
+      25.5px/45px 45px;
+  background-repeat: no-repeat;
+  background-color: rebeccapurple;
+  transform: rotateY(0deg) translateZ(50px);
+}
+
+.back {
+  background: radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%)
+      15px 15px/35px 35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 10.5px
+      10.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 50px 50px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 45.5px
+      45.5px/45px 45px;
+
+  background-repeat: no-repeat;
+  background-color: rebeccapurple;
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+  background: radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 9px
+      9px/35px 35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 4.5px
+      4.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 59px 59px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 54.5px
+      54.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 34px 34px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 29.5px
+      29.5px/45px 45px;
+  background-repeat: no-repeat;
+  background-color: rebeccapurple;
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  background: radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 9px
+      9px/35px 35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 4.5px
+      4.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 59px 59px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 54.5px
+      54.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 59px 9px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 54.5px
+      4.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 9px 59px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 4.5px
+      54.5px/45px 45px;
+
+  background-repeat: no-repeat;
+  background-color: rebeccapurple;
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+  background: radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 9px
+      9px/35px 35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 4.5px
+      4.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 59px 59px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 54.5px
+      54.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 59px 9px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 54.5px
+      4.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 9px 59px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 4.5px
+      54.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 34px 34px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 29.5px
+      29.5px/45px 45px;
+  background-repeat: no-repeat;
+  background-color: rebeccapurple;
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  background: radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 9px
+      9px/35px 35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 4.5px
+      4.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 59px 59px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 54.5px
+      54.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 59px 9px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 54.5px
+      4.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 9px 59px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 4.5px
+      54.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 9px 34px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 4.5px
+      29.5px/45px 45px,
+    radial-gradient(40% 40% at 50% 50%, #000 49%, transparent 51%) 59px 34px/35px
+      35px,
+    radial-gradient(40% 40% at 50% 50%, #121212 49%, transparent 51%) 54.5px
+      29.5px/45px 45px;
+  background-repeat: no-repeat;
+  background-color: rebeccapurple;
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+.show-1 {
+  transform: translateZ(-50px) rotateY(0deg);
+}
+
+.show-2 {
+  transform: translateZ(-50px) rotateY(-180deg);
+}
+
+.show-3 {
+  transform: translateZ(-50px) rotateY(-90deg);
+}
+
+.show-4 {
+  transform: translateZ(-50px) rotateY(90deg);
+}
+
+.show-5 {
+  transform: translateZ(-50px) rotateX(-90deg);
+}
+
+.show-6 {
+  transform: translateZ(-50px) rotateX(90deg);
+}
+
+.diceAnimate1 {
+  animation: diceAnimate1 0.5s linear;
+}
+
+.diceAnimate2 {
+  animation: diceAnimate2 0.5s linear;
+}
+
+@keyframes diceAnimate1 {
+  0% {
+    margin-top: -150px;
+  }
+
+  100% {
+    margin-top: 0px;
+  }
+}
+
+@keyframes diceAnimate2 {
+  0% {
+    margin-top: 250px;
+  }
+
+  100% {
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 576px) {
+  .die-game {
+    position: absolute;
+    top: 25%;
+    left: 55%;
+    transform: translate(-55%, -25%);
+  }
+
+  .creator {
+    position: absolute;
+    font-size: 16px;
+    width: 250px;
+    margin-left: -130px;
+    margin-top: 430px;
+  }
+
+  .side-panel {
+    position: absolute;
+    width: 300px;
+    height: 450px;
+    margin-left: -170px;
+    margin-top: -150px;
+    transform: scale(0.8);
+  }
+
+  .scene {
+    width: 100px;
+    height: 100px;
+    perspective: 400px;
+    position: absolute;
+    margin-top: 280px;
+    margin-left: -120px;
+  }
+
+  .scene2 {
+    width: 100px;
+    height: 100px;
+    margin-top: 300px;
+    margin-left: 20px;
+    perspective: 400px;
+    position: absolute;
+  }
+}
