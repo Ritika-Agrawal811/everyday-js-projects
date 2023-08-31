@@ -175,6 +175,20 @@
             Manipulation, helped build my logic and try 3D CSS also.
           </p>
         </div>
+
+        <div class="project-notes hide" id="groceryListNotes">
+          <div onclick="closeNotes('groceryListNotes')" class="close-btn">
+            <i class="fa-regular fa-circle-xmark"></i>
+          </div>
+          <p>
+            Any application requires a database to handle storage and management
+            of data.
+          </p>
+          <p>
+            I made a grocery list application that allows users to prepare their
+            grocery lists. It uses Firebase for storing the list items.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -216,6 +230,10 @@
 
             <li class="custom-option" onclick="showProject('rollDiceGame')">
               Roll Dice Game
+            </li>
+
+            <li class="custom-option" onclick="showProject('groceryList')">
+              Grocery List
             </li>
           </ul>
         </details>
@@ -353,6 +371,24 @@
             class="project-img"
           />
           <figcaption class="project-caption">Roll Dice Game</figcaption>
+        </figure>
+        <figure
+          class="project-card"
+          onclick="displayVideo('groceryList')"
+          id="groceryList"
+          data-title="Grocery List"
+        >
+          <div class="pin">
+            <div class="pin-body"></div>
+          </div>
+          <img
+            src="images/grocery-list.png"
+            alt="Grocery List made with JavaScript and Firebase"
+            width="400"
+            height="200"
+            class="project-img"
+          />
+          <figcaption class="project-caption">Grocery List</figcaption>
         </figure>
       </div>
     </aside>

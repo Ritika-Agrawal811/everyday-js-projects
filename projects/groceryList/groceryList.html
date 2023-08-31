@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-16x16.png"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Grocery Application</title>
+  </head>
+  <body>
+    <main>
+      <section class="app__container">
+        <figure class="shopping-cart-image__container">
+          <img src="./assets/shopping-cart.png" alt="shopping cart" />
+        </figure>
+        <input
+          type="text"
+          class="input__field"
+          id="input-field"
+          placeholder="Enter an Item"
+        />
+        <button class="add__btn" id="add-button">Add to Cart</button>
+
+        <h3 class="shopping-list__heading">Shopping List</h3>
+        <ul class="shopping-list" id="shoppingList"></ul>
+      </section>
+    </main>
+
+    <script src="./scripts/database.js" type="module"></script>
+    <script src="./scripts/functions.js" type="module"></script>
+    <script src="./scripts/script.js" type="module"></script>
+  </body>
+</html>
